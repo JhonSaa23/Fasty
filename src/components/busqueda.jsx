@@ -10,18 +10,23 @@ function Busqueda(){
             <i className='bx bx-search-alt-2 hover:text-comp cursor-pointer' onClick={()=>{setIsopen(true); setIsClose(false)}}></i>
 
             {isopen && (
-                <div className='fixed inset-0 bg-black bg-opacity-30 backdrop-blur-[2px] flex justify-center items-center z-[2]'>
-                    <div className='absolute w-full z-[-1] h-full left-0 top-0' onClick={() => { setTimeout(() => { setIsopen(false) }, 700); setIsClose(true); }}></div>
-                    <div className={`w-full bg-white flex flex-col z-[1] modal ${isClose ? '' : 'modal-open'} ${isClose ? 'modal-close' : ''}`}>
+                <div className=' fixed inset-0 bg-black bg-opacity-30 backdrop-blur-[2px] flex justify-center items-center z-[2]'>
+                    <div className=' absolute w-full z-[-1] h-full left-0 top-0' onClick={() => { setTimeout(() => { setIsopen(false) }, 700); setIsClose(true); }}></div>
+                    <div className={` w-full bg-white flex flex-col z-[1] modal ${isClose ? '' : 'modal-open'} ${isClose ? 'modal-close' : ''}`}>
                         <div className='w-full flex justify-between items-center gap-8 mb-[20px]'>
                             <div className='flex items-center w-full bg-gray-100 py-2 px-4 rounded-[30px] gap-3'>
-                                <i className='bx bx-search-alt-2 text-[30px]'></i>
                                 <input type="text" className='w-full bg-transparent rounded-lg focus:border-indigo-500 duration-200 text-[20px]' placeholder='¿Que quiero comer hoy?' />
+                                <i className='bx bx-search-alt-2 text-[30px]'></i>
                             </div>
                             <div className='icon-close-modal'>
-                                <i className='bx bx-x cursor-pointer text-[30px]' onClick={() => { setTimeout(() => { setIsopen(false) }, 700); setIsClose(true); }}></i>
+                                <i className='bx bx-x cursor-pointer mt-2 text-[30px]' onClick={() => { setTimeout(() => { setIsopen(false) }, 700); setIsClose(true); }}></i>
                             </div>
                         </div>
+
+
+                        <div className='overflow-y-auto'>
+
+
                         <div className='w-full mb-[6px]'>
                             <h2 className='mb-[2px]'>Hola</h2>
                             <div className='w-full h-[2px] bg-gray-200'></div>
@@ -31,7 +36,7 @@ function Busqueda(){
                                 <div>
                                     <img className='w-[60px] rounded-[50%]' src="https://multitienda.faugetdigital.shop/imagenes_tiendas/th.jpeg" alt="" />
                                 </div>
-                                <div>
+                                <div className='transition-none'>
                                     <h2 className='text-[18px] font-bold'>Prueba Osvaldo</h2>
                                     <p className='text-[15px]' >Pruebita osvaldo</p>
                                 </div>
@@ -50,11 +55,11 @@ function Busqueda(){
                             <h2 className='mb-[2px]'>Productos</h2>
                             <div className='w-full h-[2px] bg-gray-200'></div>
                         </div>
-                        <div className='flex w-full justify-center overflow-y-auto'>
+                        <div className='flex w-full justify-center '>
                             <div className="w-full grid grid-cols-2 gap-1 cursor-pointer">
                                 <div className='w-full flex items-center gap-3 hover:bg-comp hover:text-white p-2 rounded-lg'>
-                                <img src='https://multitienda.faugetdigital.shop/imagenes_productos/entrecot.jpg' className="w-28 h-[70px] rounded-xl object-cover"></img>
-                                    <div className='flex flex-col'>
+                                    <img src='https://multitienda.faugetdigital.shop/imagenes_productos/entrecot.jpg' className="w-28 h-[70px] rounded-xl object-cover"></img>
+                                    <div className='flex flex-col transition-none'>
                                         <h2 className='text-[18px] font-bold transition-none'>Hamburguesa</h2>
                                         <p className='text-[16px] transition-none'>hola hola</p>
                                     </div>
@@ -108,6 +113,21 @@ function Busqueda(){
                                         <p className='text-[16px] transition-none'>hola hola</p>
                                     </div>
                                 </div>
+                                <div className='w-full flex items-center gap-3 hover:bg-comp hover:text-white p-2 rounded-lg'>
+                                    <img src='https://multitienda.faugetdigital.shop/imagenes_productos/entrecot.jpg' className="w-28 h-[70px] rounded-xl object-cover"></img>
+                                    <div className='flex flex-col transition-none'>
+                                        <h2 className='text-[18px] font-bold transition-none'>Hamburguesa</h2>
+                                        <p className='text-[16px] transition-none'>hola hola</p>
+                                    </div>
+                                </div>
+                                <div className='w-full flex items-center gap-3 hover:bg-comp hover:text-white p-2 rounded-lg'>
+                                    <img src='	https://multitienda.faugetdigital.shop/imagenes_productos/Ham%20cheddar%20(1).jpg' className="w-28 h-[70px] rounded-xl object-cover"></img>
+                                    <div className='flex flex-col'>
+                                        <h2 className='text-[18px] font-bold transition-none'>Hamburguesa</h2>
+                                        <p className='text-[16px] transition-none'>hola hola</p>
+                                    </div>
+                                </div>
+                            </div>
                             </div>
                         </div>
                     </div>
