@@ -18,7 +18,6 @@ export const loginUser = async (correo, contrasena) => {
         }
         
         const data = await response.json();
-        console.log(data.message)
         return data;
     } catch (error) {
         console.error('Error al iniciar sesión:', error);

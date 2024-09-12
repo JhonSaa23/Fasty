@@ -4,6 +4,8 @@ import { loginUser, registerUser } from "../core/services/login.service";
 
 
 function Login() {
+
+    const [success, setSuccess] = useState("");
     const [error, setError] = useState("");
     const [isRegistering, setIsRegistering] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
@@ -23,43 +25,47 @@ function Login() {
         if (fadeOut) {
             const timer = setTimeout(() => {
                 navigate("/");
-            }, 1000); 
+            }, 1000);
 
             return () => clearTimeout(timer);
-        } 
+        }
     }, [fadeOut, navigate]);
 
     const handleLogin = async (e) => {
         e.preventDefault();
         setIsLoading(true);
         setError("");
+        setSuccess("");
+
         try {
             await loginUser(loginCorreo, loginPassword);
-            setFadeOut(true); 
+            setSuccess("¡Inicio de sesión exitoso!");
+            setFadeOut(true);
         } catch (error) {
-            setError("Error al iniciar sesión, verifica tus credenciales");
-            console.log('Error pe caumsa ' + error);
+            setError("Error al iniciar sesión, verifica tus credenciales.");
         } finally {
             setIsLoading(false);
         }
-        setFadeOut(true);
     };
 
     const registro = async (e) => {
         e.preventDefault();
         setIsLoading(true);
         setError("");
+        setSuccess("");
+
         try {
-            const response = await registerUser(registerNombre, registerApellido, registerCorreo, registerPassword);
-            if (response.ok) {
-                setFadeOut(true); 
-            } else {
-                setError("Error en la respuesta del servidor");
-            }
+            await registerUser(
+                registerNombre,
+                registerApellido,
+                registerCorreo,
+                registerPassword
+            );
+            setSuccess("¡Registro exitoso! Inicia sesión.");
+            setFadeOut(false);
+            setIsLoading(false);
         } catch (error) {
             setError("Error al crear usuario");
-            console.log('Error' + error);
-        } finally {
             setIsLoading(false);
         }
     };
@@ -70,6 +76,8 @@ function Login() {
 
     const toggleForm = () => {
         setIsRegistering(!isRegistering);
+        setError("");
+        setSuccess("");
     };
 
     return (
@@ -84,10 +92,9 @@ function Login() {
                         </div>
                     </div>
                     <div className="w-full md:w-1/2 p-8 flex flex-col items-center justify-center">
-                        <img src="" alt="" />
                         <h2 className="text-3xl font-bold mb-6">Iniciar Sesión</h2>
                         <form className="w-full" onSubmit={handleLogin}>
-                        <input
+                            <input
                                 type="email"
                                 value={loginCorreo}
                                 onChange={(e) => setLoginCorreo(e.target.value)}
@@ -121,6 +128,11 @@ function Login() {
                                 {error}
                             </div>
                         )}
+                        {success && (
+                            <div className="w-full bg-green-100 text-green-700 p-4 rounded-md mb-4">
+                                {success}
+                            </div>
+                        )}
                         <div className="alt-register flex w-full">
                             <div className="google w-full gap-[6px] justify-center flex items-center py-2 border-[1px] shadow-md rounded-full cursor-pointer bg-white mb-3">
                                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="25" viewBox="0 0 48 48">
@@ -141,7 +153,7 @@ function Login() {
                     <div className="w-full md:w-1/2 p-8 flex flex-col items-center justify-center">
                         <h2 className="text-3xl font-bold mb-6">Registrarse</h2>
                         <form className="w-full" onSubmit={registro}>
-                        <input
+                            <input
                                 type="text"
                                 placeholder="Nombre"
                                 value={registerNombre}
@@ -184,6 +196,11 @@ function Login() {
                         {error && (
                             <div className="w-full bg-red-100 text-red-700 p-4 rounded-md mb-4">
                                 {error}
+                            </div>
+                        )}
+                        {success && (
+                            <div className="w-full bg-green-100 text-green-700 p-4 rounded-md mb-4">
+                                {success}
                             </div>
                         )}
                         <div className="alt-register flex w-full">

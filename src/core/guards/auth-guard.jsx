@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 
 function PublicRoute({ children }) {
     const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
-
     const [isAuthenticated, setIsAuthenticated] = useState(null);
+    const [loading, setLoading] = useState(true); // Nuevo estado de carga
 
     useEffect(() => {
         const checkAuth = async () => {
@@ -17,6 +17,7 @@ function PublicRoute({ children }) {
                     },
                     credentials: 'include',
                 });
+
                 if (response.ok) {
                     const data = await response.json();
                     setIsAuthenticated(data.authenticated);
@@ -26,11 +27,17 @@ function PublicRoute({ children }) {
             } catch (error) {
                 console.error('Error al verificar la autenticación:', error);
                 setIsAuthenticated(false);
+            } finally {
+                setLoading(false);
             }
         };
 
         checkAuth();
-    }, [API_URL]); // Agregar API_URL como dependencia del useEffect
+    }, [API_URL]);
+
+    if (loading) {
+        return <div>Cargando...</div>;
+    }
 
     if (isAuthenticated === true) {
         return <Navigate to="/" />;
