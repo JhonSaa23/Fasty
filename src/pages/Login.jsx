@@ -79,7 +79,7 @@ function Login() {
                 <div className={`absolute inset-0 flex transition-transform duration-700 ease-in-out`}>
                     <div className="icon-return top-[18px] left-[1.45rem] absolute z-10">
                         <div onClick={retornarHome} className="return flex items-center pr-[12px] cursor-pointer">
-                            <i className={`bx bx-chevron-left text-[30px] ${isRegistering ? "text-white delay-[.45s]" : "text-comp"}`}></i>
+                            <i className={`bx bx-chevron-left transition-[2s] text-[30px] ${isRegistering ? "text-white delay-[.45s]" : "text-comp"}`}></i>
                             <p className={`text-[16px] mb-[2px] transition-[2s] ${isRegistering ? "text-white delay-[.45s]" : "text-comp"}`}>Regresar</p>
                         </div>
                     </div>
