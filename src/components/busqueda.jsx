@@ -10,7 +10,7 @@ function Busqueda(){
             <i className='bx bx-search-alt-2 hover:text-comp cursor-pointer' onClick={()=>{setIsopen(true); setIsClose(false)}}></i>
 
             {isopen && (
-                <div className='fixed inset-0 bg-black bg-opacity-30 backdrop-blur-[2px] flex justify-center items-center'>
+                <div className='fixed inset-0 bg-black bg-opacity-30 backdrop-blur-[2px] flex justify-center items-center z-[2]'>
                     <div className='absolute w-full z-[-1] h-full left-0 top-0' onClick={() => { setTimeout(() => { setIsopen(false) }, 700); setIsClose(true); }}></div>
                     <div className={`w-full bg-white flex flex-col z-[1] modal ${isClose ? '' : 'modal-open'} ${isClose ? 'modal-close' : ''}`}>
                         <div className='w-full flex justify-between items-center gap-8 mb-[20px]'>
