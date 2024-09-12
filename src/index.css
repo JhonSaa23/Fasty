@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+    list-style: none;
+    transition: .2s;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+}
+h1, h2, h3, h4, h5, h6, p, span, label {
+  transition: none !important;
+  transition-delay: 0;
+}
+.loader {
+    border: 4px solid #f3f3f3; /* Color del borde */
+    border-top: 4px solid #ff8000; /* Color del spinner */
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    animation: spin 1s linear infinite;
+  }
+  .icon-close-modal i:hover{
+    text-shadow: 0 0 8px #0005;
+  }
+  .modal{
+    width: 0px;
+    height: 80px;
+    overflow: hidden;
+  }
+  .modal-open{
+    animation: modal-open .5s forwards;
+  }
+  @keyframes modal-open {
+    0%{
+      padding: 20px 0;
+    }
+    50%{
+      height: 80px;
+    }
+    60%{
+      width: 680px;
+    }
+    80%{
+      border-radius: 0;
+    }
+    100%{
+      padding: 20px 28px;
+      width: 680px;
+      height: 630px;
+      border-radius: 10px;
+    }
+  }
+  .modal-close{
+    animation: modal-close .6s forwards;
+  }
+  @keyframes modal-close {
+    0%{
+      padding: 20px 28px;
+      width: 680px;
+      height: 630px;
+      border-radius: 10px;
+    }
+    20%{
+      border-radius: 0;
+    }
+    40%{
+      width: 680px;
+    }
+    50%{
+      height: 80px;
+    }
+    100%{
+      padding: 20px 0;
+    }
+  }
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
