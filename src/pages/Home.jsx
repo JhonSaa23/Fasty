@@ -42,7 +42,7 @@ function Home(){
     }
     return (
         <div className="home">
-            <header className="w-full flex shadow-md mb-4 h-[55px] items-center">
+            <header className="w-full flex mb-4 h-[55px] shadow-lg items-center">
                 <div className="container m-auto h-full px-4">
                     <div className="flex justify-between items-center h-full">
                         <div className="cursor-pointer h-full flex items-center gap-[6px]">
@@ -59,7 +59,7 @@ function Home(){
                         </nav>
                         <div className="flex gap-[6px] text-[25px] h-full items-center">
 
-                            <div className="icons text-[25px] flex gap-[10px] items-center z-[1]">
+                            <div className="icons text-[25px] flex gap-[10px] items-center z-[0]">
                                 <Busqueda />
                             </div>
 
@@ -76,7 +76,7 @@ function Home(){
                                     </div>
                                 </div>
                             </li>
-                            <div className="icons text-[25px] flex gap-[10px] items-center mt-[4px] z-[2]">
+                            <div className="icons text-[25px] flex gap-[10px] items-center mt-[4px] z-[0]">
                                 <Carrito />
                             </div>
                         </div>
